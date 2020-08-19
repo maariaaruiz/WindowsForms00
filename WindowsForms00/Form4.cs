@@ -19,17 +19,29 @@ namespace WindowsForms00
             InitializeComponent();
         }
 
+        //private void Form4_Load(object sender, EventArgs e)
+        //{
+        //    IPersonaRepository repo = new PersonaRepositoryMemoria();
+        //    List <Persona> lista= repo.BuscarTodos();
+        //    //fuente de datos del combo sera la lista
+        //    comboBox1.DataSource = lista;
+        //    comboBox1.ValueMember = "Edad";//campo que guarda y referencia al nombre
+        //    comboBox1.DisplayMember = "Nombre";//campo q se muestra
+        //}
+
+
+        //opcion mejor
         private void Form4_Load(object sender, EventArgs e)
         {
-            listaPesonas.Add(new Persona("Pedro", 20));
-            listaPesonas.Add(new Persona("Juan", 30));
-
+            IPersonaRepository repo = new PersonaRepositoryMemoria();
+            IList<Persona> lista = repo.BuscarTodos();
             //fuente de datos del combo sera la lista
-            comboBox1.DataSource = listaPesonas;
-
+            comboBox1.DataSource = lista;
             comboBox1.ValueMember = "Edad";//campo que guarda y referencia al nombre
             comboBox1.DisplayMember = "Nombre";//campo q se muestra
-
         }
     }
 }
+//ienumerable recorrer elementos
+//icollection recorrer y añadir
+//ilist recorrer, añadir y actualizar elementos
