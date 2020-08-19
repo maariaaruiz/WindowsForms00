@@ -22,8 +22,8 @@ namespace WindowsForms00
 
         private void Form7_Load(object sender, EventArgs e)
         {
-            midataset = new DataSet();
-          
+
+            midataset = new DataSet();//en vez de dataset, mejor una clase con las consultas
 
             ConnectionStringSettings settings =
             ConfigurationManager.ConnectionStrings["miconexion"];
@@ -41,6 +41,11 @@ namespace WindowsForms00
                 adaptador1.Fill(midataset,"Facturas");//le da nombre a una tabla-> le llamamos facturas
                 adaptador2.Fill(midataset,"LineasFactura");//le da nombre a una tabla-> le llamamos facturas
 
+                //vamos a utilzar un datarelation
+                midataset.Relations.Add("Relacion",
+                    midataset.Tables["Facturas"].Columns["NUMERO"],
+                    midataset.Tables["LineasFactura"].Columns["FACTURAS_NUMERO"]);
+               
                 dataGridView1.DataSource = midataset;
                 dataGridView2.DataSource = midataset;
                 dataGridView1.DataMember = "Facturas";
