@@ -21,7 +21,7 @@ namespace WindowsForms00
 
         private void Form9_Load(object sender, EventArgs e)
         {
-
+            //con strone dataset
 
             ConnectionStringSettings settings =
             ConfigurationManager.ConnectionStrings["miconexion"];
@@ -29,21 +29,27 @@ namespace WindowsForms00
             using (SqlConnection conexion = new SqlConnection(cadena))
             {
                 conexion.Open();
+              //  QueriesTableAdapter q = new QueriesTableAdapter();
                 string sql = "select * from Facturas";
                 string sql2 = "select * from LineasFactura";
 
                 SqlDataAdapter adaptador1 = new SqlDataAdapter(sql, conexion);
                 SqlDataAdapter adaptador2 = new SqlDataAdapter(sql2, conexion);
 
-                //metodo fill, para rellenar el datatable
+                ////metodo fill, para rellenar el datatable
                 adaptador1.Fill(dataSet11, "Facturas");//le da nombre a una tabla-> le llamamos facturas
                 adaptador2.Fill(dataSet11, "LineasFactura");//le da nombre a una tabla-> le llamamos facturas
+
+                //      QueriesTableAdapter q = new QueriesTableAdapter();
+                //q.GetFacturas();
 
 
                 dataGridView1.DataSource = dataSet11;
                 dataGridView2.DataSource = dataSet11;
+
                 dataGridView1.DataMember = "Facturas";
-                dataGridView2.DataMember = "LineasFactura";
+                  dataGridView2.DataMember = "LineasFactura";
+              
             }
         }
     }

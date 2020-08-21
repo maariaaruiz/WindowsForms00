@@ -599,8 +599,6 @@ namespace WindowsForms00 {
             
             private global::System.Data.DataColumn columnProductos_id;
             
-            private global::System.Data.DataColumn columnUnidades;
-            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public LineasFacturaDataTable() {
@@ -660,14 +658,6 @@ namespace WindowsForms00 {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public global::System.Data.DataColumn UnidadesColumn {
-                get {
-                    return this.columnUnidades;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -703,13 +693,12 @@ namespace WindowsForms00 {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public LineasFacturaRow AddLineasFacturaRow(int Numero, FacturasRow parentFacturasRowByFacturas_LineasFactura, string Productos_id, int Unidades) {
+            public LineasFacturaRow AddLineasFacturaRow(int Numero, FacturasRow parentFacturasRowByFacturas_LineasFactura, string Productos_id) {
                 LineasFacturaRow rowLineasFacturaRow = ((LineasFacturaRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         Numero,
                         null,
-                        Productos_id,
-                        Unidades};
+                        Productos_id};
                 if ((parentFacturasRowByFacturas_LineasFactura != null)) {
                     columnValuesArray[1] = parentFacturasRowByFacturas_LineasFactura[0];
                 }
@@ -746,7 +735,6 @@ namespace WindowsForms00 {
                 this.columnNumero = base.Columns["Numero"];
                 this.columnFacturas_Numero = base.Columns["Facturas_Numero"];
                 this.columnProductos_id = base.Columns["Productos_id"];
-                this.columnUnidades = base.Columns["Unidades"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -758,8 +746,6 @@ namespace WindowsForms00 {
                 base.Columns.Add(this.columnFacturas_Numero);
                 this.columnProductos_id = new global::System.Data.DataColumn("Productos_id", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnProductos_id);
-                this.columnUnidades = new global::System.Data.DataColumn("Unidades", typeof(int), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnUnidades);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columnNumero,
                                 this.columnFacturas_Numero}, true));
@@ -1010,22 +996,6 @@ namespace WindowsForms00 {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public int Unidades {
-                get {
-                    try {
-                        return ((int)(this[this.tableLineasFactura.UnidadesColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("El valor de la columna \'Unidades\' de la tabla \'LineasFactura\' es DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableLineasFactura.UnidadesColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public FacturasRow FacturasRow {
                 get {
                     return ((FacturasRow)(this.GetParentRow(this.Table.ParentRelations["Facturas_LineasFactura"])));
@@ -1045,18 +1015,6 @@ namespace WindowsForms00 {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public void SetProductos_idNull() {
                 this[this.tableLineasFactura.Productos_idColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public bool IsUnidadesNull() {
-                return this.IsNull(this.tableLineasFactura.UnidadesColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public void SetUnidadesNull() {
-                this[this.tableLineasFactura.UnidadesColumn] = global::System.Convert.DBNull;
             }
         }
         
